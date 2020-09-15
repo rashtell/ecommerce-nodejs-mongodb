@@ -10,6 +10,7 @@ require("./config/mongoose.js")(app);
 app.use(morgan('dev'));
 app.use(cors());
 app.use(bodyParser.json())
+app.use('/files', express.static("files"));
 
 app.get('/', (req, res) => {
     res.json({
@@ -17,7 +18,10 @@ app.get('/', (req, res) => {
     });
 });
 
+require('./app/routeHandler')(app)
+
 const port = process.env.PORT || 4000;
+
 app.listen(port, () => {
     console.log(`Application is running on ${port}`);
 });

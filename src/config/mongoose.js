@@ -6,7 +6,7 @@ module.exports = app => {
         useNewUrlParser: true,
         useFindAndModify: false
     })
-    .then(res => console.log("conneceted: ", res))
+    .then(res => console.log("mongo conneceted"))
     .catch(err => console.log(err))
 
     mongoose.Promise = global.Promise;
